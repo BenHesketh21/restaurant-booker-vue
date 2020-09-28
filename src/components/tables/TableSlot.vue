@@ -12,7 +12,7 @@
 
 <script>
 export default {
-    name: "Table Slot",
+    name: "TableSlot",
     props: ["table"],
     data() {
         return {
@@ -62,6 +62,16 @@ input {
     width: 50%;
     float: right;
 }
+@media (max-width: 800px) {
+.update {
+    background: blue;
+    color: #000000;
+    border: none;
+    padding: 5px 7px;
+    cursor: pointer;
+    float: left;
+    margin: -15% 1%;
+  }
 .del {
     background: #ff0000;
     color: #000000;
@@ -69,9 +79,8 @@ input {
     padding: 5px 9px;
     cursor: pointer;
     float: right;
-    position: fixed;
-    margin-top: 0.5%;
-    margin-left: 22.5%;
+    position: relative;
+    margin: -15% 1%;
   }
 .edit {
     background: #71EA6B;
@@ -80,28 +89,56 @@ input {
     padding: 5px 9px;
     cursor: pointer;
     float: right;
-    margin-top: -3.5%;
-    margin-left: -1.6%;
-  }
-.update {
-    background: #f4f4f4;
-    color: #000000;
-    border: none;
-    padding: 5px 9px;
-    cursor: pointer;
-    float: right;
-    margin-top: -4.3%;
-    margin-right: 6%;
+    margin: 3% 3%;
   }
 .updating {
-    background: #f4f4f4;
+    background: blue;
+    color: #000000;
+    border: none;
+    padding: 5px 9px;
+    cursor: pointer;
+    float: left;
+    position: relative;
+    margin: 4% 4%;
+  }
+}
+@media (min-width: 801px) {
+.del {
+    background: #ff0000;
     color: #000000;
     border: none;
     padding: 5px 9px;
     cursor: pointer;
     float: right;
-    position: fixed;
-    margin-top: 0.5%;
-    margin-left: -4%;
+    position: relative;
+    margin: -4% 1%;
   }
+.edit {
+    background: #71EA6B;
+    color: #000000;
+    border: none;
+    padding: 5px 9px;
+    cursor: pointer;
+    float: right;
+    margin: -4% 1%;
+  }
+.update {
+    background: blue;
+    color: #000000;
+    border: none;
+    padding: 5px 7px;
+    cursor: pointer;
+    float: left;
+    margin: -4% 1%;
+  }
+.updating {
+    background: blue;
+    color: #000000;
+    border: none;
+    padding: 5px 7px;
+    cursor: pointer;
+    float: left;
+    margin: -4% 1%;
+  }
+}
 </style>

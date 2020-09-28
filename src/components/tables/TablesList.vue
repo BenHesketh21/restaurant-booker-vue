@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import TableSlot from '../components/TableSlot'
+import TableSlot from './TableSlot'
 
 export default {
-    name: "Tables List",
+    name: "TablesList",
     components: {
         TableSlot
     },

@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    name: "New Table",
+    name: "NewTable",
     data() {
         return {
             id: '',
