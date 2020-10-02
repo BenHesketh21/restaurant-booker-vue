@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import TableSlot from '../components/TableSlot'
+import TableSlot from './TableSlot'
 
 export default {
-    name: "Tables List",
+    name: "TablesList",
     components: {
         TableSlot
     },
@@ -31,13 +31,13 @@ export default {
 
 <style scoped>
 .table_slot {
-    margin-left: 25%;
+    margin-left: 12.5%;
     margin-right: -100px;
-    width: 50%;
+    width: 75%;
 }
 table {
-    width: 50%;
-    margin-left: 25%;
+    width: 75%;
+    margin-left: 12.5%;
 }
 th {
     text-align: center;

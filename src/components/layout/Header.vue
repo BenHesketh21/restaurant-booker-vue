@@ -4,6 +4,7 @@
     <div id="nav">
         | <router-link to="/">Timetable</router-link>| 
         <router-link to="/tables">Tables</router-link>|
+        <router-link to="/bookings">Bookings</router-link>|
     </div>
   </header>
 </template>

@@ -23,7 +23,7 @@ import TimeTableBooking from './TimeTableBooking';
 
 export default {
     name: "TimeTableSlot",
-    props: ["time", "bookings", "customers", "tables"],
+    props: ["time", "bookings", "customers", "tables", "date"],
     components: {
         TimeTableBooking
     },
@@ -32,7 +32,8 @@ export default {
         var booking;
         var bookingsList = []
         for (booking in this.bookings) {
-            if (this.bookings[booking].time == time) {
+            console.log(this.bookings[booking].time, time, this.bookings[booking].date, this.date)
+            if (this.bookings[booking].time == time && this.bookings[booking].date == this.date) {
                 bookingsList.push(this.bookings[booking])
             }           
         }

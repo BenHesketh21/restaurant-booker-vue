@@ -1,7 +1,8 @@
 <template>
 	<div>
+        <TimeTableDay v-on:date="whichDate" />
         <div v-bind:key="time.id" v-for="time in times">
-        <TimeTableSlot v-bind:time="time" v-bind:bookings="bookings" v-bind:customers="customers" v-bind:tables="tables" v-on:del-booking="delBooking" />
+        <TimeTableSlot v-bind:time="time" v-bind:bookings="bookings" v-bind:customers="customers" v-bind:tables="tables" v-on:del-booking="delBooking" v-bind:date="date" />
         </div>
 	</div>
 </template>
@@ -9,16 +10,19 @@
 
 <script>
 import TimeTableSlot from './TimeTableSlot';
+import TimeTableDay from './TimeTableDay';
 
 export default {
     name: "TimeTable",
     components: {
-        TimeTableSlot
+        TimeTableSlot,
+        TimeTableDay
     },
     props: ["bookings", "customers", "tables"],
     data () {
         return {
-            times: this.timeslots()
+            times: this.timeslots(),
+            date: this.getToday()
         }
     },
     methods:{
@@ -36,6 +40,18 @@ export default {
         },
         delBooking(id) {
             this.$emit('del-booking', id)
+        },
+        whichDate(date) {
+            this.date = date
+        },
+        getToday() {
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = dd + '/' + mm + '/' + yyyy;
+            return today;
         }
     }
 }

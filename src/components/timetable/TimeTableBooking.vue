@@ -37,6 +37,7 @@ export default {
     text-align: left;
     margin-bottom: 0px;
     overflow: hidden;
+    position: relative;
   }
 .customer {
     width: 10%;
@@ -47,6 +48,63 @@ export default {
     float: left;
     text-decoration-thickness: 100%;
 }
+
+
+.arrived {
+    background: #000000;
+}
+@media (max-width: 800px) {
+  .arrive {
+    position: relative;
+    background: #71EA6B;
+    color: #000000;
+    border: none;
+    padding: 5px 9px;
+    cursor: pointer;
+    float: right;
+    margin: -8% 20%;
+  }
+.del {
+    position: relative;
+    background: #ff0000;
+    color: #000000;
+    border: none;
+    padding: 5px 9px;
+    cursor: pointer;
+    float: right;
+    margin: -8% 5%;
+  }
+.table {
+    margin-left: 35%;
+    width: 30%;
+    text-align: center;
+    margin-top: 6%;
+    margin-bottom: 1%;
+    float: none;
+  }
+}
+
+@media (min-width: 801px) {
+.arrive {
+    position: relative;
+    background: #71EA6B;
+    color: #000000;
+    border: none;
+    padding: 5px 9px;
+    cursor: pointer;
+    float: right;
+    margin: -2% 20%;
+  }
+.del {
+    position: relative;
+    background: #ff0000;
+    color: #000000;
+    border: none;
+    padding: 5px 9px;
+    cursor: pointer;
+    float: right;
+    margin: -2% 5%;
+  }
 .table {
     margin-left: 35%;
     width: 30%;
@@ -55,29 +113,5 @@ export default {
     margin-bottom: 1%;
     float: none;
   }
-
-.arrived {
-    background: #000000;
 }
-
-.arrive {
-    background: #71EA6B;
-    color: #000000;
-    border: none;
-    padding: 5px 9px;
-    cursor: pointer;
-    float: right;
-    margin-top: -40px;
-    margin-right: 25%;
-  }
-.del {
-    background: #ff0000;
-    color: #000000;
-    border: none;
-    padding: 5px 9px;
-    cursor: pointer;
-    float: right;
-    margin-top: -40px;
-    margin-right: 10%;
-  }
 </style>

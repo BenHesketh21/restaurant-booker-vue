@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import TablesList from '../components/TablesList' 
-import NewTable from '../components/NewTable'
+import TablesList from '../components/tables/TablesList' 
+import NewTable from '../components/tables/NewTable'
 
 export default {
   name: "Tables",

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TimeTable from '../components/TimeTable';
+import TimeTable from '../components/timetable/TimeTable';
 
 export default {
   name: 'Home',
@@ -17,8 +17,8 @@ export default {
       bookings: [
         {
           id: 1,
-          time:"12:00:00",
-          date:"12/09/2020",
+          time:"13:00:00",
+          date:"28/09/2020",
           table:1,
           user:1,
           arrived: false
@@ -26,15 +26,15 @@ export default {
         {
           id: 2,
           time:"15:30:00",
-          date:"12/09/2020",
+          date:"29/09/2020",
           table:2,
           user:1,
           arrived: false
         },
         {
           id: 3,
-          time:"12:00:00",
-          date:"12/09/2020",
+          time:"14:30:00",
+          date:"28/09/2020",
           table:3,
           user:2,
           arrived: false
@@ -42,7 +42,7 @@ export default {
         {
           id: 4,
           time:"16:30:00",
-          date:"12/09/2020",
+          date:"29/09/2020",
           table:1,
           user:2,
           arrived: false
@@ -50,31 +50,31 @@ export default {
         {
           id: 5,
           time:"12:30:00",
-          date:"12/09/2020",
+          date:"28/09/2020",
           table:3,
           user:3,
           arrived: false
         },
         {
           id: 6,
-          time:"12:30:00",
-          date:"12/09/2020",
+          time:"13:30:00",
+          date:"29/09/2020",
           table:1,
           user:1,
           arrived: false
         },
         {
           id: 7,
-          time:"12:30:00",
-          date:"12/09/2020",
+          time:"18:30:00",
+          date:"28/09/2020",
           table:2,
           user:1,
           arrived: false
         },
         {
           id: 8,
-          time:"12:00:00",
-          date:"12/09/2020",
+          time:"19:00:00",
+          date:"29/09/2020",
           table:2,
           user:2,
           arrived: false
@@ -82,7 +82,7 @@ export default {
         {
           id: 9,
           time:"12:00:00",
-          date:"12/09/2020",
+          date:"28/09/2020",
           table:4,
           user:2,
           arrived: false
