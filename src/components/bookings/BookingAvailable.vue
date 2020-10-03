@@ -1,5 +1,15 @@
 <template>
     <div>
+        <div v-if="booked">
+          <div class="title">
+            <h2>You're booking was successful</h2>
+            <h2>{{ num_of_cust }} guests</h2>
+            <h2>Table {{ table }}</h2>
+            <h2>{{ formattedDate() }}</h2>
+            <h2>{{ formattedTime() }}</h2>
+          </div>
+        </div>
+        <div v-else>
         <div class="title">
             <h2> When would you like to book?</h2>
         </div>
@@ -14,7 +24,7 @@
             <h2>How many diners?</h2>
         </div>
         <br>
-        <input class="num_of_cust" type="number" v-model="num_of_cust" name="" id="">
+        <input class="num_of_cust" type="number" v-model="num_of_cust">
         <br><br>
         <input type="submit" value="Check Availability">
         </form>
@@ -24,12 +34,7 @@
         <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
         <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
         </svg>
-            <br>
-            <h3>Table {{ booking.table }} is available            
-            Would you like to book it?</h3>
-            <br><br>
-            <button>&#10004;</button>
-            <button>X</button>
+        <MakeBooking v-on:no-booking="noBooking" v-on:make-booking="makeBooking" v-bind:date="date" v-bind:time="time" v-bind:table="booking.table" />
         </div>
         <div v-else-if="booking.available == false">
             <svg class="cross" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
@@ -41,15 +46,25 @@
 
             <h3>{{ booking.message }}</h3>
         </div>
+        </div>
     </div>
 </template>
 
 <script>
+import MakeBooking from './MakeBooking';
+
 export default {
     name: "BookingAvailable",
     props: ['booking'],
+    components: {
+      MakeBooking
+    },
     data () {
         return {
+            booked: false,
+            date: '',
+            time: '',
+            num_of_cust: '',
             today: this.getToday(),
             week: this.get2WeekAhead(),
             times: ["12:00", "12:30","13:00", "13:30","14:00", "14:30","15:00", "15:30","16:00", "16:30","17:00", "17:30","18:00", "18:30","19:00", "19:30","20:00", "20:30"]
@@ -57,6 +72,14 @@ export default {
         }
     },
     methods: {
+        formattedTime() {
+          let formattedTime = this.time.slice(0,5)
+          return formattedTime
+        },
+        formattedDate() {
+          let formattedDate = this.date[8] + this.date[9] + '/' + this.date[5] + this.date[6] + '/' + this.date[0] + this.date[1] + this.date[2] + this.date[3]
+          return formattedDate
+        },
         isAvailable() {
             let formattedDate = this.date[8] + this.date[9] + '/' + this.date[5] + this.date[6] + '/' + this.date[0] + this.date[1] + this.date[2] + this.date[3]  
             const requestedBooking = {
@@ -64,11 +87,15 @@ export default {
                 time: this.time,
                 number_of_customers: Number(this.num_of_cust)
             }
-            console.log(requestedBooking)
             this.$emit('booking-avail', requestedBooking)
         },
+        makeBooking(approvedBooking) {
+          this.booked = true
+          this.table = approvedBooking.table
+          this.$emit('make-booking', approvedBooking)
+        },
         getToday() {
-         let today = new Date().toISOString().slice(0, 10)
+            let today = new Date().toISOString().slice(0, 10)
             return today;
         },
         get2WeekAhead() {
@@ -77,6 +104,13 @@ export default {
             let nextWeek = today.toISOString().slice(0, 10)
             // let today = new Date().toLocaleDateString()
             return nextWeek;
+        },
+        noBooking() {
+          this.date = ""
+          this.time = ""
+          this.num_of_cust = ""
+          this.booking.available = null
+          this.booked = false
         }
     }
 }
